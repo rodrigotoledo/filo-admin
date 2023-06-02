@@ -34,7 +34,7 @@ vendor/cache
 report.pdf
 .byebug_history
 /coverage
-
+/storage
 /public/assets
 
 /app/assets/builds/*

@@ -77,4 +77,6 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :letter_opener_web
   config.action_mailer.perform_deliveries = true
+  config.web_console.whitelisted_ips = '2804:4308:546:0:b413:6d09:6220:826b'  # Substitua pelo seu endereço IP permitido
+  config.default_url_options = { host: ENV['API_BASE_URL'] }
 end
