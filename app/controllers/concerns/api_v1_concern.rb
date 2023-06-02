@@ -3,6 +3,6 @@ module ApiV1Concern
   include DeviseTokenAuth::Concerns::SetUserByToken
 
   included do
-    before_action :authenticate_usuario!
+    before_action :authenticate_user!
   end
 end
