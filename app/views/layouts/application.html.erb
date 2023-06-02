@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FiloAdmin</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="bg-gray-100">
+    <header class="bg-purple-700 text-white">
+      <nav class="container mx-auto flex items-center justify-between py-4">
+        <div>
+          <%= link_to "Aplicação", root_path, class: 'font-bold text-lg' %>
+        </div>
+        <ul class="flex space-x-4">
+          <li><%= link_to 'Dashboard', root_path, class: 'hover:text-gray-300' %></li>
+          <li><%= link_to 'Categorias', categories_path, class: 'hover:text-gray-300' %></li>
+          <li><%= button_to "Sair", destroy_user_session_path, method: :delete, class: "hover:text-gray-300" %></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container mx-auto p-8 mt-10">
+      <%= yield %>
+    </main>
+  </body>
+</html>

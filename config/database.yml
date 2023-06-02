@@ -1,0 +1,30 @@
+# Configure Using Gemfile
+# gem 'pg'
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-poolingd
+  pool: 10
+
+development:
+  <<: *default
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%=ENV['DATABASE_USER']%>
+  password: <%=ENV['DATABASE_PASSWORD']%>
+  host: localhost
+  port: 5432
+  # url: <%= ENV['DATABASE_URL'] %>
+
+test:
+  <<: *default
+  database: <%= ENV['DATABASE_NAME'] %>_test
+  username: <%=ENV['DATABASE_USER']%>
+  password: <%=ENV['DATABASE_PASSWORD']%>
+  host: localhost
+  port: 5432
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
