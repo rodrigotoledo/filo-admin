@@ -5,8 +5,9 @@ class Api::V1::CategoriesController < Api::ApplicationController
 
   def index
     categories = Category.all
-    render json: categories, except: %i[created_at updated_at], status: :ok
-  rescue StandardError
+    render json: categories.as_json(except: %i[created_at updated_at], methods: [:image_url]), status: :ok
+  rescue StandardError => e
+    puts e.message
     head :internal_server_error
   end
 end

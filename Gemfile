@@ -49,7 +49,7 @@ gem "bootsnap", require: false
 # gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
 
 group :development, :test do
   gem 'brakeman'
@@ -88,3 +88,4 @@ gem 'devise_token_auth', git: 'https://github.com/lynndylanhurley/devise_token_a
 gem 'rack-cors'
 gem 'oauth2'
 gem 'redis'
+gem 'friendly_id'
