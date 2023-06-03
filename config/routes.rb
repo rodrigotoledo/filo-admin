@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :chats
+  resources :questions
   devise_for :users
   resources :products
   resources :categories
@@ -10,7 +12,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      resources :chats
       resources :categories
+      resources :questions
       resources :products do
         collection do
           get 'featureds', to: 'products#featureds'
