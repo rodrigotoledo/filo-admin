@@ -19,6 +19,13 @@
   <div class="my-5">
     <%= form.label :image %>
     <%= form.file_field :image, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <p class="my-5">
+      <% if category.image.attached? %>
+        <%= resized_image_tag(category.image, 300, 200) %>
+      <% else %>
+        <p>Nenhuma imagem disponível.</p>
+      <% end %>
+    </p>
   </div>
 
   <div class="inline">

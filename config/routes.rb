@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :products
   resources :categories
   root "dashboard#index"
 
@@ -10,6 +11,11 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :categories
+      resources :products do
+        collection do
+          get 'featureds', to: 'products#featureds'
+        end
+      end
     end
   end
 end
