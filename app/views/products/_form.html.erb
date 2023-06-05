@@ -17,6 +17,16 @@
   </div>
 
   <div class="my-5">
+    <%= form.label :category_id %>
+    <%= form.select :category_id, Category.all.map{|t| [t.name, t.id]}, {include_blank: true}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :variation %>
+    <%= form.select :variation, options_for_select(variations_options), {include_blank: true}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
     <%= form.label :status %>
     <%= status_select(form, :status) %>
   </div>

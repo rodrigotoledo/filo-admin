@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :products
   resources :categories
-  root "dashboard#index"
+  root 'dashboard#index'
 
-  mount_devise_token_auth_for 'User', at: '/v1/auth',  as: :auth_v1, controllers: {
+  mount_devise_token_auth_for 'User', at: '/v1/auth', as: :auth_v1, controllers: {
     sessions: 'api/v1/auth/sessions'
   }
 
@@ -15,11 +15,7 @@ Rails.application.routes.draw do
       resources :chats
       resources :categories
       resources :questions
-      resources :products do
-        collection do
-          get 'featureds', to: 'products#featureds'
-        end
-      end
+      resources :products
     end
   end
 end

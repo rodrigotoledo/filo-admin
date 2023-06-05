@@ -5,6 +5,16 @@
   </p>
 
   <p class="my-5">
+    <strong class="block font-medium mb-1">Category:</strong>
+    <%= product.category.try(:name) %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Variation:</strong>
+    <%= product.variation %>
+  </p>
+
+  <p class="my-5">
     <% if product.image.attached? %>
       <%= resized_image_tag(product.image, 100, 100) %>
     <% else %>
