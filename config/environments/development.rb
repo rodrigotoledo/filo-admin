@@ -78,8 +78,15 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :letter_opener_web
   config.action_mailer.perform_deliveries = true
   config.web_console.whitelisted_ips = [
+    '2804:4308:546:0:c5c7:2034:6273:d081',
+    '45.70.35.252',
+    '45.70.34.70',
+    '2804:4308:546:0:c8ad:6372:d46d:c954',
     '177.136.194.28',
     '2804:4308:546:0:343b:bd6:29:6f39',
-    '2804:4308:546:0:2ce6:f687:928c:980f', '2804:4308:546:0:b413:6d09:6220:826b', '2804:4308:546:0:316f:b78f:8ae8:e53e']  # Substitua pelo seu endereço IP permitido
+    '2804:4308:546:0:2ce6:f687:928c:980f',
+    '2804:4308:546:0:b413:6d09:6220:826b',
+    '2804:4308:546:0:316f:b78f:8ae8:e53e'
+  ]
   config.default_url_options = { host: ENV.fetch('API_BASE_URL', nil) }
 end

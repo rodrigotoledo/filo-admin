@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_05_073051) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_10_105858) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -70,6 +70,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_073051) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "product_ratings", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "user_id", null: false
+    t.float "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_product_ratings_on_product_id"
+    t.index ["user_id"], name: "index_product_ratings_on_user_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "slug"
@@ -111,4 +121,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_073051) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "chats", "chats"
   add_foreign_key "chats", "users"
+  add_foreign_key "product_ratings", "products"
+  add_foreign_key "product_ratings", "users"
 end
